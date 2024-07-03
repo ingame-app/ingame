@@ -62,8 +62,7 @@ const MainBox = ({ content, date, refetchMainBoxData }: MainBoxProps) => {
 
       showConfirm(message, () => {
         mainContent.status = newStatus;
-        modifyMainQuestStatus({ id: mainContent.id, status: mainContent.status })
-        .then(() => {
+        modifyMainQuestStatus({ id: mainContent.id, status: mainContent.status }).then(() => {
           refetchMainBoxData();
         });
       });
@@ -189,16 +188,17 @@ const MainBoxStyle = styled.div<{ status: QuestStatus }>`
   .aFContainer {
     display: flex;
     align-items: center;
+    flex-direction: row;
     gap: 5px;
 
     .aButton {
       width: 30px;
       height: 30px;
     }
-  }
 
-  .fDisplay {
-    font-size: 0.9rem;
+    .fDisplay {
+      font-size: 0.9rem;
+    }
   }
 
   .title {
